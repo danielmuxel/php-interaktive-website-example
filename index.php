@@ -50,6 +50,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Save the last login date in a cookie if the checkbox is checked
     if ($saveLoginDate) {
       setcookie('last_login_date', date('Y-m-d H:i:s'), time() + 86400 * 30); // Cookie expires in 30 days
+    } else {
+      setcookie('last_login_date', '', time() - 3600); // Delete the cookie
     }
 
     // Redirect to the success page
@@ -67,6 +69,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <head>
   <meta charset="UTF-8">
   <title>Login Form</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>

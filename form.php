@@ -43,6 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
   // Save the form data as a JSON file on the server
   $filename = 'form_data_' . date('Y-m-d_H-i-s') . '.json';
+  // $filename = 'form_data.json'; // Use this filename to overwrite the same file
   file_put_contents($filename, json_encode($data));
 
   // Redirect to the success page
@@ -57,6 +58,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <head>
   <meta charset="UTF-8">
   <title>Form</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -65,13 +67,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <p>Last logged in: <?php echo $formattedLastLoginDate; ?></p>
   <?php endif; ?>
 
-    <h1>Form</h1>
+  <h1>Form</h1>
 
   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
 
   <form method="POST">
     <label for="username">Username:</label>
-    <input type="text" name="username" id="username" required>
+    <input type="text" name="username" id="username" value="<?= htmlspecialchars($username); ?>" disabled>
     <br>
     <label for="firstname">First name:</label>
     <input type="text" name="firstname" id="firstname" required>

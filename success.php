@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Success</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <h1>Form submitted successfully</h1>
